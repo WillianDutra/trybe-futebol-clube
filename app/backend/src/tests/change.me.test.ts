@@ -23,17 +23,17 @@ describe('Seu teste', () => {
   //   sinon
   //     .stub(Example, "findOne")
   //     .resolves({
-  //       ...<Seu mock>
+  //       ...<Seu mock >
   //     } as Example);
   // });
 
-  // after(()=>{
+  // after(() => {
   //   (Example.findOne as sinon.SinonStub).restore();
   // })
 
   // it('...', async () => {
   //   chaiHttpResponse = await chai
-  //      .request(app)
+  //     .request(app)
   //      ...
 
   //   expect(...)
