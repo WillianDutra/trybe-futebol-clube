@@ -1,4 +1,4 @@
-import IMatches from '../interface/IMatches';
+import IMatches, { ISimpleMatch } from '../interface/IMatches';
 import Matches from '../models/Matches';
 import Teams from '../models/Teams';
 
@@ -28,5 +28,15 @@ export default class MatchesSerivice {
     const [affected] = await this.matchesModel
       .update({ homeTeamGoals: homeTeam, awayTeamGoals: awayTeam }, { where: { id } });
     return affected;
+  }
+
+  public async createMatch({
+    homeTeamId,
+    homeTeamGoals,
+    awayTeamId,
+    awayTeamGoals,
+  }: ISimpleMatch): Promise<IMatches> {
+    const matchData = { homeTeamId, homeTeamGoals, awayTeamId, awayTeamGoals, inProgress: true };
+    return this.matchesModel.create(matchData);
   }
 }
