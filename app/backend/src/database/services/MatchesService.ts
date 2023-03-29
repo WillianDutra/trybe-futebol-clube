@@ -18,4 +18,8 @@ export default class MatchesSerivice {
     return this.getAllMatches().then((matches) => matches
       .filter((match) => match.inProgress === matchProgress));
   }
+
+  public async finhishMatch(id: number) {
+    return this.matchesModel.update({ inProgress: false }, { where: { id } });
+  }
 }
