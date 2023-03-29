@@ -8,4 +8,4 @@ export const createToken = (data: IUserData): string => {
   return jwt.sign({ id, username, role, email }, secret, { algorithm: 'HS256', expiresIn: '1d' });
 };
 
-export const validateToken = (token: string) => jwt.verify(token, secret);
+export const verifyToken = (token: string) => jwt.verify(token, secret);

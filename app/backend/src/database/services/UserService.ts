@@ -7,4 +7,9 @@ export default class UserService {
   public async getUserByEmail(email: string): Promise<IUserData | null> {
     return this.usersModel.findOne({ where: { email } });
   }
+
+  public async getUserRole(id: number): Promise<IUserData | null> {
+    return this.usersModel
+      .findByPk(id, { attributes: { exclude: ['password', 'id', 'username', 'email'] } });
+  }
 }
