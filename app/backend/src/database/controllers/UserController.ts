@@ -8,13 +8,9 @@ export default class UserController {
 
   public validateBody = (email: string, password: string) => email && password;
 
-  public userLogin = async (req: Request, res: Response) => {
+  public userLogin = async (req: Request, res: Response): Promise<Response> => {
     try {
       const { email, password } = req.body;
-      if (!this.validateBody(email, password)) {
-        return res.status(400).json({ message: 'All fields must be filled' });
-      }
-
       const userData = await this.userService.getUserByEmail(email);
 
       if (!userData || !bcrypt.compareSync(password, userData.password || '')) {
@@ -24,7 +20,7 @@ export default class UserController {
       const token = createToken(userData);
       return res.status(200).json({ token });
     } catch (error) {
-      res.status(500).json(error);
+      return res.status(500).json(error);
     }
   };
 }
