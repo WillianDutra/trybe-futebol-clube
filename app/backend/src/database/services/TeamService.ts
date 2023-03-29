@@ -7,4 +7,8 @@ export default class TeamService {
   public async getAllTeams(): Promise<ITeam[]> {
     return this.teamsModel.findAll();
   }
+
+  public async getTeamById(id: number): Promise<ITeam | null> {
+    return this.teamsModel.findByPk(id);
+  }
 }
