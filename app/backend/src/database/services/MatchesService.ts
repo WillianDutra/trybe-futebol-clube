@@ -19,7 +19,14 @@ export default class MatchesSerivice {
       .filter((match) => match.inProgress === matchProgress));
   }
 
-  public async finhishMatch(id: number) {
-    return this.matchesModel.update({ inProgress: false }, { where: { id } });
+  public async finhishMatch(id: number): Promise<number> {
+    const [affected] = await this.matchesModel.update({ inProgress: false }, { where: { id } });
+    return affected;
+  }
+
+  public async updateMatch(id: number, homeTeam: number, awayTeam: number): Promise<number> {
+    const [affected] = await this.matchesModel
+      .update({ homeTeamGoals: homeTeam, awayTeamGoals: awayTeam }, { where: { id } });
+    return affected;
   }
 }
