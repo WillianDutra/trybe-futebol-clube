@@ -14,32 +14,39 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Testes unitarios do endpoint de Matches', function () {
+describe('Testes do endpoint de Matches', function () {
   let chaiHttpResponse: Response
 
-  it('Listando todos as partidas', async function () {
-    sinon.stub(MatchesService.prototype, 'getAllMatches')
-      .resolves(allMatches as IMatchesWithNames[]);
-    chaiHttpResponse = await chai.request(app).get('/matches');
-    expect(chaiHttpResponse.status).to.be.equal(200);
-    expect(chaiHttpResponse.body).to.be.deep.equal(allMatches);
-  });
+  describe('Metodos get', async function () {
+    it('Listando todos as partidas', async function () {
+      sinon.stub(MatchesService.prototype, 'getAllMatches')
+        .resolves(allMatches as IMatchesWithNames[]);
+      chaiHttpResponse = await chai.request(app).get('/matches');
+      expect(chaiHttpResponse.status).to.be.equal(200);
+      expect(chaiHttpResponse.body).to.be.deep.equal(allMatches);
+    });
 
-  it('Listando todas as partidas em andamento', async function () {
-    sinon.stub(MatchesService.prototype, 'getFilteredMatches')
-      .resolves(inProgressMatches as IMatchesWithNames[]);
-    const chaiHttpResponse = await chai.request(app).get('/matches?inProgress=true');
-    expect(chaiHttpResponse.status).to.be.equal(200);
-    expect(chaiHttpResponse.body).to.be.deep.equal(inProgressMatches);
+    it('Listando todas as partidas em andamento', async function () {
+      sinon.stub(MatchesService.prototype, 'getFilteredMatches')
+        .resolves(inProgressMatches as IMatchesWithNames[]);
+      const chaiHttpResponse = await chai.request(app).get('/matches?inProgress=true');
+      expect(chaiHttpResponse.status).to.be.equal(200);
+      expect(chaiHttpResponse.body).to.be.deep.equal(inProgressMatches);
+    })
+
+    it('Listando todas as partidas encerradas', async function () {
+      sinon.stub(MatchesService.prototype, 'getFilteredMatches')
+        .resolves(finishedMatches as IMatchesWithNames[]);
+      const chaiHttpResponse = await chai.request(app).get('/matches?inProgress=false');
+      expect(chaiHttpResponse.status).to.be.equal(200);
+      expect(chaiHttpResponse.body).to.be.deep.equal(finishedMatches);
+    })
   })
 
-  it('Listando todas as partidas encerradas', async function () {
-    sinon.stub(MatchesService.prototype, 'getFilteredMatches')
-      .resolves(finishedMatches as IMatchesWithNames[]);
-    const chaiHttpResponse = await chai.request(app).get('/matches?inProgress=false');
-    expect(chaiHttpResponse.status).to.be.equal(200);
-    expect(chaiHttpResponse.body).to.be.deep.equal(finishedMatches);
-  })
+  // describe('Metodo post', async function () {
+  //   it('Possivel criar uma nova partida', async function () {
+  //   })
+  // });
 
   afterEach(function () {
     sinon.restore();

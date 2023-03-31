@@ -14,7 +14,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Testes unitarios do endpoint de Teams', function () {
+describe('Testes do endpoint de Teams', function () {
   let chaiHttpResponse: Response
 
   it('Listando todos os times', async function () {
