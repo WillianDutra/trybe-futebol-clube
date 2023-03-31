@@ -12,6 +12,8 @@ export default class Leaderboard {
   public totalLosses: number;
   public goalsFavor: number;
   public goalsOwn: number;
+  public goalsBalance: number;
+  public efficiency: string;
 
   constructor(matches: IMatches[], team: ITeam, isHomeTeam: boolean) {
     this.matches = matches;
@@ -24,6 +26,8 @@ export default class Leaderboard {
     this.totalLosses = 0;
     this.goalsFavor = 0;
     this.goalsOwn = 0;
+    this.goalsBalance = 0;
+    this.efficiency = '';
     this.getScore();
   }
 
@@ -31,6 +35,11 @@ export default class Leaderboard {
     const victory = this.totalVictories * 3;
     const draws = this.totalDraws;
     this.totalPoints = victory + draws;
+
+    this.goalsBalance = this.goalsFavor - this.goalsOwn;
+
+    const efficiency = ((this.totalPoints / (this.totalGames * 3)) * 100);
+    this.efficiency = efficiency.toFixed(2);
   }
 
   createHomeScore() {
@@ -40,7 +49,7 @@ export default class Leaderboard {
 
       if (match.homeTeamGoals > match.awayTeamGoals) {
         this.totalVictories += 1;
-      } else {
+      } if (match.homeTeamGoals < match.awayTeamGoals) {
         this.totalLosses += 1;
       }
     });
@@ -53,7 +62,7 @@ export default class Leaderboard {
 
       if (match.awayTeamGoals > match.homeTeamGoals) {
         this.totalVictories += 1;
-      } else {
+      } if (match.awayTeamGoals < match.homeTeamGoals) {
         this.totalLosses += 1;
       }
     });
@@ -75,7 +84,7 @@ export default class Leaderboard {
 
   getTeamInfos() {
     const { name, totalPoints, totalGames, totalVictories,
-      totalLosses, totalDraws, goalsFavor, goalsOwn } = this;
+      totalLosses, totalDraws, goalsFavor, goalsOwn, goalsBalance, efficiency } = this;
     return { name,
       totalPoints,
       totalGames,
@@ -83,6 +92,8 @@ export default class Leaderboard {
       totalLosses,
       totalDraws,
       goalsFavor,
-      goalsOwn };
+      goalsOwn,
+      goalsBalance,
+      efficiency };
   }
 }

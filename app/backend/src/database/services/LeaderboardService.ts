@@ -1,6 +1,7 @@
 import Teams from '../models/Teams';
 import Matches from '../models/Matches';
 import Leaderboard from '../Leaderboard';
+import sortLeaderboard from '../utils/SortLeaderboard';
 
 export default class LeaderboardService {
   constructor(private matchesModel = Matches, private teamsService = Teams) {}
@@ -18,11 +19,6 @@ export default class LeaderboardService {
       return teamStatus.getTeamInfos();
     });
 
-    return leaderboard.sort((a, b) => {
-      if (a.totalPoints > b.totalPoints) return -1;
-      if (a.totalVictories > b.totalVictories) return -1;
-      if (a.goalsFavor > b.goalsFavor) return -1;
-      return 1;
-    });
+    return sortLeaderboard(leaderboard);
   }
 }
