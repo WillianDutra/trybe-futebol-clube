@@ -132,3 +132,38 @@ export const finishedMatches = [
     }
   },
 ];
+
+export const notFoundTeams = {
+  "homeTeamId": 999999,
+  "awayTeamId": 99999,
+  "homeTeamGoals": 3,
+  "awayTeamGoals": 1,
+}
+
+export const equalTeams = {
+  "homeTeamId": 1,
+  "awayTeamId": 1,
+  "homeTeamGoals": 3,
+  "awayTeamGoals": 1,
+}
+
+export const createMatch = {
+  "homeTeamId": 1,
+  "awayTeamId": 2,
+  "homeTeamGoals": 2,
+  "awayTeamGoals": 2,
+}
+
+export const newMatch = {
+  "id": 49,
+  "homeTeamId": 16,
+  "homeTeamGoals": 2,
+  "awayTeamId": 8,
+  "awayTeamGoals": 2,
+  "inProgress": true,
+}
+
+export const patchMatch = {
+  "homeTeamGoals": 3,
+  "awayTeamGoals": 1
+}
