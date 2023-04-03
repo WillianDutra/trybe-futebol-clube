@@ -84,20 +84,8 @@ export const awayLeaderboard = [
 ]
 
 export const allTeams = [
-  {
-    "id": 8,
-    "teamName": "Grêmio"
-  },
-  {
-    "id": 9,
-    "teamName": "Internacional"
-  },
-  {
-    "id": 14,
-    "teamName": "Santos"
-  },
-  {
-    "id": 16,
-    "teamName": "São Paulo"
-  }
+  { "id": 8, "teamName": "Grêmio" },
+  { "id": 9, "teamName": "Internacional" },
+  { "id": 14, "teamName": "Santos" },
+  { "id": 16, "teamName": "São Paulo" }
 ]
