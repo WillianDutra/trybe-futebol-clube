@@ -1,13 +1,30 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+## Trybe Futebol Clube
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Este projeto visa fixar os aprendizados sobre Typescript, Programação Orientada a Objetos e Sequelize.
+
+Uma aplicação full-stack, onde desenvolvi apenas o back-end para fornecer as informações ao front-end. E possível ver os resultados das partidas, atualiza-los e também visualizar um leaderboard dos times.
+## Apredizados com este projeto
+
+- Typescript
+- Programação Orientada a Objetos
+- SOLID
+- Docker
+- Sequelize
+
+
+## Instalação
+
+Caso queira instalar o projeto e dar uma olhada mais de perto.
+
+```bash
+  # Clonando o projeto
+  git clone git@github.com:WillianDutra/trybe-futebol-clube.git
+  # Entrando na pasta
+  cd trybe-futebol-clube
+  # Configure o arquivo .env
+  # Subindo os containers
+  npm run compopse:up // para subir a aplicacao
+  npm run compose:down // para descer a aplicacao
+  # Agora é só abrir o localhost:3001
+```
