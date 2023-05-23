@@ -19,7 +19,7 @@ Caso queira instalar o projeto e dar uma olhada mais de perto.
 
 ```bash
   # Clonando o projeto
-  git clone git@github.com:WillianDutra/trybe-futebol-clube.git
+  git clone git@github.com:WillianDutra/typescript-tfc.git
   # Entrando na pasta
   cd trybe-futebol-clube
   # Configure o arquivo .env
