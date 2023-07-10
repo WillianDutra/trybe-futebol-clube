@@ -4,7 +4,7 @@
 Este projeto visa fixar os aprendizados sobre Typescript, Programação Orientada a Objetos e Sequelize.
 
 Uma aplicação full-stack, onde desenvolvi apenas o back-end para fornecer as informações ao front-end. É possível ver os resultados das partidas, atualiza-los e também visualizar um leaderboard dos times.
-## 📝 Apredizados com este projeto
+## 📝 Aprendizados com este projeto
 
 - Typescript
 - Programação Orientada a Objetos
